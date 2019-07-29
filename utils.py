@@ -181,8 +181,8 @@ def make_sequences2(texts, lower = True, filters='!"#$%&()*+,-./:;<=>?@[\\]^_`{|
     sequences = tokenizer.texts_to_sequences(texts)
     
     # Limit to sequences with more than training length tokens
-    seq_lengths = [len(x) for x in sequences]
-    over_idx = [i for i, l in enumerate(seq_lengths) if l > (training_length + 20)]
+    #seq_lengths = [len(x) for x in sequences]
+    #over_idx = [i for i, l in enumerate(seq_lengths) if l > (training_length + 20)]
     
     #new_texts = []
     #new_sequences = []
