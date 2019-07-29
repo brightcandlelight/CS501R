@@ -135,8 +135,8 @@ def create_train_valid(features,
     # Decide on number of samples for training
     train_end = int(train_fraction * len(labels))
 
-    train_features_a = np.array(list(features[:train_end]))
-    valid_features_a = np.array(list(features[train_end:]))
+    train_features = np.array(list(features[:train_end]))
+    valid_features = np.array(list(features[train_end:]))
     #print(features[:train_end])
     
 
