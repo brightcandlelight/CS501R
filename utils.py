@@ -141,7 +141,13 @@ def create_train_valid(features,
     valid_labels = labels[train_end:]
 
     # Convert to arrays
-    X_train, X_valid = np.array(train_features), np.array(valid_features)
+    X_train_a, X_valid_a = np.array(train_features), np.array(valid_features)
+    X_train = []
+    X_valid = []
+    for i in range(len(X_train_a)):
+        X_train.append(X_train_a[i])
+    for i in range(len(X_valid_a)):
+        X_valid.append(X_valid_a[i])
 
     # Using int8 for memory savings
     y_train = np.zeros((len(train_labels), num_words), dtype=np.int8)
