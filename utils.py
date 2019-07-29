@@ -209,14 +209,22 @@ def make_sequences2(texts, training_length = 50,
     for seq in sequences:
         
         # Create multiple training examples from each sequence
-        #for i in range(training_length, len(seq)):
+        for i in range(training_length, len(seq)):
         
-        # Extract the features and label
-        feature = seq[2:]
-        label = seq[1:2][0]
-        #prev = seq[:1]
-        print(feature)
-        print(label)
+            # Extract the features and label
+            #feature = seq[2:]
+            #label = seq[1:2][0]
+            #prev = seq[:1]
+            #print(feature)
+            #print(label)
+            # Extract the features and label
+            extract = seq[i - training_length: i + 1]
+            
+            # Set the features and label
+            features.append(extract[:-1])
+            labels.append(extract[-1])
+            print(extract[:-1])
+            print(extract[-1])
         
         # Set the features and label
         features.append(feature)
