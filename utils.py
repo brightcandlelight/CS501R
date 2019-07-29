@@ -136,18 +136,16 @@ def create_train_valid(features,
 
     train_features = np.array(features[:train_end])
     valid_features = np.array(features[train_end:])
+    #    for i in range(len(X_train_a)):
+    #    X_train.append(X_train_a[i])
+    #for i in range(len(X_valid_a)):
+    #    X_valid.append(X_valid_a[i])
 
     train_labels = labels[:train_end]
     valid_labels = labels[train_end:]
 
     # Convert to arrays
     X_train_a, X_valid_a = np.array(train_features), np.array(valid_features)
-    X_train = []
-    X_valid = []
-    for i in range(len(X_train_a)):
-        X_train.append(X_train_a[i])
-    for i in range(len(X_valid_a)):
-        X_valid.append(X_valid_a[i])
 
     # Using int8 for memory savings
     y_train = np.zeros((len(train_labels), num_words), dtype=np.int8)
@@ -217,7 +215,7 @@ def make_sequences2(texts, lower = True, filters='!"#$%&()*+,-./:;<=>?@[\\]^_`{|
         labels.append(label)
     
     print(f'There are {len(features)} sequences.')
-    print(str(features[0]))
+    print(str(features))
     print(str(labels[0]))
     
     # Return everything needed for setting up the model
