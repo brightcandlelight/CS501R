@@ -98,6 +98,7 @@ def get_data2(file, filters='!"%;[\\]^_`{|}~\t\n', training_len=50,
     """Retrieve formatted training and validation data from a file"""
     
     #data = pd.read_csv(file, parse_dates=['patent_date']).dropna(subset = ['patent_abstract'])
+    print("HERE")
     lineList=[]
     with open(file) as f:
         lineList = f.readlines()
