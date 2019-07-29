@@ -103,8 +103,8 @@ def get_data2(file, filters='!"%;[\\]^_`{|}~\t\n', training_len=50,
     with open(file) as f:
         lineList = f.readlines()
     abstracts = lineList
-    word_idx, idx_word, num_words, word_counts, texts, sequences, features, labels = make_sequences2(
-        abstracts, lower, filters)
+    word_idx, idx_word, num_words, word_counts, texts, sequences, features, labels = make_sequences(
+        abstracts, training_len, lower, filters)
     X_train, X_valid, y_train, y_valid = create_train_valid(features, labels, num_words)
     training_dict = {'X_train': X_train, 'X_valid': X_valid, 
                      'y_train': y_train, 'y_valid': y_valid}
