@@ -215,8 +215,8 @@ def make_sequences2(texts, training_length = 50,
         feature = seq[2:]
         label = seq[1:2][0]
         #prev = seq[:1]
-        #print(feature)
-        #print(label)
+        print(feature)
+        print(label)
         
         # Set the features and label
         features.append(feature)
