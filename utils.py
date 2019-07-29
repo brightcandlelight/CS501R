@@ -103,7 +103,7 @@ def get_data2(file, filters='!"%;[\\]^_`{|}~\t\n', training_len=50,
     with open(file) as f:
         lineList = f.readlines()
     abstracts = lineList
-    word_idx, idx_word, num_words, word_counts, texts, sequences, features, labels = make_sequences(
+    word_idx, idx_word, num_words, word_counts, texts, sequences, features, labels = make_sequences2(
         abstracts, training_len, lower, filters)
     X_train, X_valid, y_train, y_valid = create_train_valid(features, labels, num_words)
     training_dict = {'X_train': X_train, 'X_valid': X_valid, 
@@ -215,6 +215,8 @@ def make_sequences2(texts, training_length = 50,
         feature = seq[2:]
         label = seq[1:2]
         #prev = seq[:1]
+        print(feature)
+        print(label)
         
         # Set the features and label
         features.append(feature)
