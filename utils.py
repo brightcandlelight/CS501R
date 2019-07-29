@@ -184,13 +184,13 @@ def make_sequences2(texts, lower = True, filters='!"#$%&()*+,-./:;<=>?@[\\]^_`{|
     #seq_lengths = [len(x) for x in sequences]
     #over_idx = [i for i, l in enumerate(seq_lengths) if l > (training_length + 20)]
     
-    #new_texts = []
-    #new_sequences = []
+    new_texts = []
+    new_sequences = []
     
     # Only keep sequences with more than training length tokens
-    #for i in over_idx:
-    #    new_texts.append(texts[i])
-    #    new_sequences.append(sequences[i])
+    for i in texts:
+        new_texts.append(texts[i])
+        new_sequences.append(sequences[i])
         
     features = []
     labels = []
@@ -211,9 +211,11 @@ def make_sequences2(texts, lower = True, filters='!"#$%&()*+,-./:;<=>?@[\\]^_`{|
         labels.append(label)
     
     print(f'There are {len(features)} sequences.')
+    print(str(features[0]))
+    print(str(labels[0]))
     
     # Return everything needed for setting up the model
-    return word_idx, idx_word, num_words, word_counts, texts, sequences, features, labels
+    return word_idx, idx_word, num_words, word_counts, new_texts, new_sequences, features, labels
 
 def make_sequences(texts, training_length = 50,
                    lower = True, filters='!"#$%&()*+,-./:;<=>?@[\\]^_`{|}~\t\n'):
