@@ -171,7 +171,8 @@ def create_train_valid(features,
 
     return X_train, X_valid, y_train, y_valid
 
-def make_sequences2(texts, lower = True, filters='!"#$%&()*+,-./:;<=>?@[\\]^_`{|}~\t\n'):
+def make_sequences2(texts, training_length = 50, 
+                    lower = True, filters='!"#$%&()*+,-./:;<=>?@[\\]^_`{|}~\t\n'):
     """Turn a set of texts into sequences of integers"""
     
     # Create the tokenizer object and train on texts
@@ -190,14 +191,14 @@ def make_sequences2(texts, lower = True, filters='!"#$%&()*+,-./:;<=>?@[\\]^_`{|
     sequences = tokenizer.texts_to_sequences(texts)
     
     # Limit to sequences with more than training length tokens
-    #seq_lengths = [len(x) for x in sequences]
-    #over_idx = [i for i, l in enumerate(seq_lengths) if l > (training_length + 20)]
+    seq_lengths = [len(x) for x in sequences]
+    over_idx = [i for i, l in enumerate(seq_lengths) if l > (training_length + 20)]
     
     new_texts = []
     new_sequences = []
     
     # Only keep sequences with more than training length tokens
-    for i in range(len(texts)):
+    for i in over_idx:
         new_texts.append(texts[i])
         new_sequences.append(sequences[i])
         
@@ -213,7 +214,7 @@ def make_sequences2(texts, lower = True, filters='!"#$%&()*+,-./:;<=>?@[\\]^_`{|
         # Extract the features and label
         feature = seq[2:]
         label = seq[1:2]
-        prev = seq[:1]
+        #prev = seq[:1]
         
         # Set the features and label
         features.append(feature)
@@ -271,6 +272,8 @@ def make_sequences(texts, training_length = 50,
             # Set the features and label
             features.append(extract[:-1])
             labels.append(extract[-1])
+            print(extract[:-1])
+            print(extract[-1])
     
     print(f'There are {len(features)} sequences.')
     
