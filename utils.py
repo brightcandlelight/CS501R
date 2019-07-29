@@ -137,12 +137,17 @@ def create_train_valid(features,
 
     train_features = np.array(features[:train_end])
     valid_features = np.array(features[train_end:])
+    print(type([]))
     print(type(features))
     print(type(features[:train_end]))
-    print(train_features)
+    print(type(train_features))
+    print(train_features[0])
+    print(features[:train_end][0])
     
     train_labels = labels[:train_end]
     valid_labels = labels[train_end:]
+    
+    print(np.array(train_features)[0])
 
     # Convert to arrays
     X_train, X_valid = np.array(train_features), np.array(valid_features)
