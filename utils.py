@@ -188,7 +188,7 @@ def make_sequences2(texts, lower = True, filters='!"#$%&()*+,-./:;<=>?@[\\]^_`{|
     new_sequences = []
     
     # Only keep sequences with more than training length tokens
-    for i in texts:
+    for i in range(len(texts)):
         new_texts.append(texts[i])
         new_sequences.append(sequences[i])
         
