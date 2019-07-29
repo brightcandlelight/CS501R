@@ -98,7 +98,7 @@ def get_data2(file, filters='!"%;[\\]^_`{|}~\t\n', training_len=50,
     """Retrieve formatted training and validation data from a file"""
     
     #data = pd.read_csv(file, parse_dates=['patent_date']).dropna(subset = ['patent_abstract'])
-    print("HERE")
+    print("HERE1")
     lineList=[]
     with open(file) as f:
         lineList = f.readlines()
@@ -224,7 +224,7 @@ def make_sequences2(texts, training_length = 50,
     
     print(f'There are {len(features)} sequences.')
     #print(str(features))
-    print(str(labels[0]))
+    #print(str(labels[0]))
     
     # Return everything needed for setting up the model
     return word_idx, idx_word, num_words, word_counts, new_texts, new_sequences, features, labels
