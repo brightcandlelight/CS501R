@@ -150,7 +150,7 @@ def create_train_valid(features,
     print(np.array(train_features))
 
     # Convert to arrays
-    X_train, X_valid = array(train_features), array(valid_features)
+    X_train, X_valid = np.array(train_features), np.array(valid_features)
 
     # Using int8 for memory savings
     y_train = np.zeros((len(train_labels), num_words), dtype=np.int8)
