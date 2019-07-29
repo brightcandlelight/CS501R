@@ -134,12 +134,14 @@ def create_train_valid(features,
     # Decide on number of samples for training
     train_end = int(train_fraction * len(labels))
 
-    train_features = np.array(features[:train_end])
-    valid_features = np.array(features[train_end:])
-    #    for i in range(len(X_train_a)):
-    #    X_train.append(X_train_a[i])
-    #for i in range(len(X_valid_a)):
-    #    X_valid.append(X_valid_a[i])
+    train_features_a = np.array(features[:train_end])
+    valid_features_a = np.array(features[train_end:])
+    train_features = []
+    valid_features = []
+    for i in range(len(train_features_a)):
+        train_features.append(train_features_a[i])
+    for i in range(len(valid_features_a)):
+        valid_features.append(valid_features_a[i])
 
     train_labels = labels[:train_end]
     valid_labels = labels[train_end:]
